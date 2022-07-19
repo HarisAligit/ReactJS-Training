@@ -1,5 +1,5 @@
 import React from "react";
-import ChangeColorButton from "../ccb";
+import ChangeColorButton from "./ccb";
 
 class ColoredBlock extends React.Component {
   constructor(props) {
@@ -7,6 +7,7 @@ class ColoredBlock extends React.Component {
     this.state = {
       color: "red",
     };
+    this.changeColor = this.changeColor.bind(this);
   }
   changeColor() {
     let newColor = this.state.color === "red" ? "blue" : "red";
