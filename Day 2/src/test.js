@@ -1,15 +1,22 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
+const scaleArr = {
+  c: "Celsius",
+  f: "Fahrenheit",
+};
+
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      temperature: "",
       x: "Hello From",
       color: "red",
       login: false,
       numbers: [1, 2, 3, 4, 6, 7, 8],
     };
+    this.handleTemp = this.handleTemp.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +31,10 @@ class Welcome extends React.Component {
     this.setState({ login: x });
   }
 
+  handleTemp(e) {
+    this.props.onTemperatureChange(e.target.value);
+  }
+
   NumberList(x) {
     const numbers = x;
     const listItems = numbers.map((number, i) => <li key={i}>{number}</li>);
@@ -31,8 +42,12 @@ class Welcome extends React.Component {
   }
 
   render() {
+    const temperature = this.props.temperature;
+    const scale1 = this.props.scale;
+
     return (
       <div>
+        {console.log("Props", this.props)}
         {this.state.x} {this.props.name}
         {this.state.login ? (
           <Button
@@ -53,6 +68,10 @@ class Welcome extends React.Component {
         )}
         (:P)
         {this.NumberList(this.state.numbers)}
+        <fieldset>
+          <legend>Enter temperature in {scaleArr[scale1]}:</legend>
+          <input value={temperature} onChange={this.handleTemp} />
+        </fieldset>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import ColoredBlock from "./cb";
 import Clock from "./clock";
+import Calc from "./calc";
 import Welcome from "./test";
 
 function App() {
@@ -9,9 +10,9 @@ function App() {
     // <div className="App">
     //   <header className="App-header">
     <div>
-      <Welcome name={"Haris Ali"} />
+      <Calc />
       <Clock />
-      {/* <ColoredBlock /> */}
+      <ColoredBlock />
     </div>
 
     /* <img src={logo} className="App-logo" alt="logo" />
