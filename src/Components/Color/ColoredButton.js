@@ -1,33 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import ChangeColorButton from "./ChangeColor";
 
-class ColoredBlock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: "red",
-    };
-    this.changeColor = this.changeColor.bind(this);
-  }
-  changeColor() {
-    let newColor = this.state.color === "red" ? "blue" : "red";
-    this.setState({
-      color: newColor,
-    });
-  }
-  render() {
-    return (
-      <div
-        style={{
-          height: "200px",
-          width: "200px",
-          backgroundColor: this.state.color,
-        }}
-      >
-        <ChangeColorButton clickHandler={this.changeColor}></ChangeColorButton>
-      </div>
-    );
-  }
-}
+const ColoredBlock = (props) => {
+  const [color, setColor] = useState("red");
+
+  const changeColor = () => {
+    let newColor = color === "red" ? "blue" : "red";
+    setColor(newColor);
+  };
+  return (
+    <div
+      style={{
+        height: "200px",
+        width: "200px",
+        backgroundColor: color,
+      }}
+    >
+      <ChangeColorButton clickHandler={changeColor}></ChangeColorButton>
+    </div>
+  );
+};
 
 export default ColoredBlock;
