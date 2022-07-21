@@ -1,4 +1,4 @@
-import Welcome from "../../test"
+import Welcome from "../Shared/test"
 import React from "react";
 
 class TempCalculator extends React.Component {
