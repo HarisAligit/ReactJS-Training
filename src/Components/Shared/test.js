@@ -23,7 +23,7 @@ const Welcome = (props) => {
   };
 
   const handleTemp = (e) => {
-    props.onTemperatureChange(e.target.value);
+    props.onTemperatureChange(() => e.target.value);
   };
 
   const NumberList = (x) => {

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import ChangeColorButton from "./ChangeColor";
 
 const ColoredBlock = (props) => {
-  const [color, setColor] = useState("red");
+  const [color, setColor] = useState("purple");
 
   const changeColor = () => {
-    let newColor = color === "red" ? "blue" : "red";
+    let newColor = color === "purple" ? "pink" : "purple";
     setColor(newColor);
   };
   return (

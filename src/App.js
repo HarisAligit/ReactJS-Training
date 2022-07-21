@@ -2,7 +2,7 @@ import "./App.css";
 import ColoredBlock from "./Components/Color/ColoredButton";
 import Clock from "./Components/TimeClock/TimeClock";
 import TempCalculator from "./Components/Temperature/TempCalculator";
-import Day7 from "./day7";
+import Day7 from "./Components/Hooks/day7";
 
 function App() {
   return (
