@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
 const scaleArr = {
@@ -6,75 +6,63 @@ const scaleArr = {
   f: "Fahrenheit",
 };
 
-class Welcome extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      temperature: "",
-      x: "Hello From",
-      color: "red",
-      login: false,
-      numbers: [1, 2, 3, 4, 6, 7, 8],
-    };
-    this.handleTemp = this.handleTemp.bind(this);
-  }
+const Welcome = (props) => {
+  const x = "Hello From";
+  const [login, setLogin] = useState(false);
+  const numbers = [1, 2, 3, 4, 6, 7, 8];
 
-  componentDidMount() {
+  useEffect(() => {
     console.log("Welcome Component Mounted!");
-  }
+    return () => {
+      console.log("Welcome Component Unmounted!");
+    };
+  }, []);
 
-  componentWillUnmount() {
-    console.log("Welcome Component Unmounted!");
-  }
+  const activateLaser = (flag) => {
+    setLogin(flag);
+  };
 
-  activateLaser(x) {
-    this.setState({ login: x });
-  }
+  const handleTemp = (e) => {
+    props.onTemperatureChange(e.target.value);
+  };
 
-  handleTemp(e) {
-    this.props.onTemperatureChange(e.target.value);
-  }
-
-  NumberList(x) {
+  const NumberList = (x) => {
     const numbers = x;
     const listItems = numbers.map((number, i) => <li key={i}>{number}</li>);
     return <ul>{listItems}</ul>;
-  }
+  };
 
-  render() {
-    const temperature = this.props.temperature;
-    const scale1 = this.props.scale;
+  const PropsTemperature = props.temperature;
+  const scale1 = props.scale;
 
-    return (
-      <div>
-        {console.log("Props", this.props)}
-        {this.state.x} {this.props.name}
-        {this.state.login ? (
-          <Button
-            onClick={() => this.activateLaser(false)}
-            className="a1"
-            variant="success"
-          >
-            Logged In!
-          </Button>
-        ) : (
-          <Button
-            onClick={() => this.activateLaser(true)}
-            className="a1"
-            variant="danger"
-          >
-            Logged Out!
-          </Button>
-        )}
-        (:P)
-        {this.NumberList(this.state.numbers)}
-        <fieldset>
-          <legend>Enter temperature in {scaleArr[scale1]}:</legend>
-          <input value={temperature} onChange={this.handleTemp} />
-        </fieldset>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {x}
+      {login ? (
+        <Button
+          onClick={() => activateLaser(false)}
+          className="a1"
+          variant="success"
+        >
+          Logged In!
+        </Button>
+      ) : (
+        <Button
+          onClick={() => activateLaser(true)}
+          className="a1"
+          variant="danger"
+        >
+          Logged Out!
+        </Button>
+      )}
+      (:P)
+      {NumberList(numbers)}
+      <fieldset>
+        <legend>Enter temperature in {scaleArr[scale1]}:</legend>
+        <input value={PropsTemperature} onChange={handleTemp} />
+      </fieldset>
+    </div>
+  );
+};
 
 export default Welcome;
