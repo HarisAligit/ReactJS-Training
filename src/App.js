@@ -3,12 +3,14 @@ import ColoredBlock from "./Components/Color/ColoredButton";
 import Clock from "./Components/TimeClock/TimeClock";
 import TempCalculator from "./Components/Temperature/TempCalculator";
 import Day7 from "./Components/Hooks/day7";
+import NewTodo from "./Components/Todos/NewTodo";
 
 function App() {
   return (
     // <div className="App">
     //   <header className="App-header">
     <div>
+      <NewTodo />
       <TempCalculator />
       <Clock />
       <Day7 />

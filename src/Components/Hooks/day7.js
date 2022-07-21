@@ -10,7 +10,7 @@ const expensivefunc = (a) => {
 };
 
 const Day7 = () => {
-  const [jsonData] = useFetch("https://jsonplaceholder.typicode.com/todos");
+  const [jsonData] = useFetch("https://jsonplaceholder.typicode.com/todos"); // using Custom Hook with useState
   const [message, SetMessage] = useState("");
   const prevMessage = useRef("");
   const [count, setCount] = useState(0);
@@ -51,7 +51,7 @@ const Day7 = () => {
 
   return (
     <div>
-      {JSON.stringify(jsonData.slice(1, 11))}
+      {jsonData && JSON.stringify(jsonData.slice(1, 11))}
       <h2>Current Value: {message}</h2>
       <h2>Previous Value: {prevMessage.current}</h2>
       <Button variant="danger" onClick={() => increment(count + 1)}>
