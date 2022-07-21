@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { Button } from "react-bootstrap";
 
 const Todo = ({ todos, addTodo }) => {
@@ -14,4 +13,4 @@ const Todo = ({ todos, addTodo }) => {
   );
 };
 
-export default memo(Todo);
+export default Todo;

@@ -4,12 +4,14 @@ import Clock from "./Components/TimeClock/TimeClock";
 import TempCalculator from "./Components/Temperature/TempCalculator";
 import Day7 from "./Components/Hooks/day7";
 import NewTodo from "./Components/Todos/NewTodo";
+import Parent from "./Components/Hooks/ImperativeHandle";
 
 function App() {
   return (
     // <div className="App">
     //   <header className="App-header">
     <div>
+      <Parent />
       <NewTodo />
       <TempCalculator />
       <Clock />
