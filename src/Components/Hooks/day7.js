@@ -1,15 +1,18 @@
-import { useState, useEffect, useMemo, useReducer } from "react";
+import { useState, useEffect, useMemo, useReducer, useRef } from "react";
 import { Button } from "react-bootstrap";
+import useFetch from "./Fetch";
 
 const expensivefunc = (a) => {
-  for (let i = 0; i < 199999999; i++) {
+  for (let i = 0; i < 299999999; i++) {
     a += 1;
   }
   return a;
 };
 
 const Day7 = () => {
-  const [message, SetMessage] = useState("This is a message");
+  const [jsonData] = useFetch("https://jsonplaceholder.typicode.com/todos");
+  const [message, SetMessage] = useState("");
+  const prevMessage = useRef("");
   const [count, setCount] = useState(0);
   const calculation = useMemo(() => expensivefunc(count), [count]);
 
@@ -38,6 +41,7 @@ const Day7 = () => {
 
   useEffect(() => {
     console.log("you message here in UseEffect", message);
+    prevMessage.current = message;
     return () => console.log("Component Unmounted from UseEffect");
   }, [message]);
 
@@ -47,7 +51,9 @@ const Day7 = () => {
 
   return (
     <div>
-      {message}
+      {JSON.stringify(jsonData.slice(1, 11))}
+      <h2>Current Value: {message}</h2>
+      <h2>Previous Value: {prevMessage.current}</h2>
       <Button variant="danger" onClick={() => increment(count + 1)}>
         Add Count!
       </Button>
@@ -69,8 +75,7 @@ const Day7 = () => {
       <form>
         <input type="text" value={message} onChange={handleMessage} />
       </form>
-      Count: {count}
-      {calculation}
+      Value: {calculation}
     </div>
   );
 };
