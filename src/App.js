@@ -1,9 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
-import ColoredBlock from "./cb";
-import Clock from "./clock";
-import Calc from "./calc";
-import Welcome from "./test";
+import ColoredBlock from "./Components/Color/ColoredButton";
+import Clock from "./Components/TimeClock/TimeClock";
+import TempCalculator from "./Components/Temperature/TempCalculator";
 import Day7 from "./day7";
 
 function App() {
@@ -11,7 +9,7 @@ function App() {
     // <div className="App">
     //   <header className="App-header">
     <div>
-      <Calc />
+      <TempCalculator />
       <Clock />
       <Day7 />
       <ColoredBlock />
