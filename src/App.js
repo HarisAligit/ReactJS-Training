@@ -5,12 +5,14 @@ import TempCalculator from "./Components/Temperature/TempCalculator";
 import Day7 from "./Components/Hooks/day7";
 import NewTodo from "./Components/Todos/NewTodo";
 import Parent from "./Components/Hooks/ImperativeHandleParent";
+import LoginButton from "./Components/Login/LoginButton";
 
 function App() {
   return (
     // <div className="App">
     //   <header className="App-header">
     <div>
+      <LoginButton />
       <Parent />
       <NewTodo />
       <TempCalculator />

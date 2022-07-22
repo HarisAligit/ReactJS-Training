@@ -16,6 +16,7 @@ const TemperatureCaller = (props) => {
 
   return (
     <div>
+      <br />
       <InputGroup>
         <InputGroup.Text>
           Enter temperature in {scaleArr[scale1]}:
@@ -27,6 +28,7 @@ const TemperatureCaller = (props) => {
           aria-label="With textarea"
         />
       </InputGroup>
+      <br />
     </div>
   );
 };
