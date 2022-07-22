@@ -9,6 +9,7 @@ const NewTodo = () => {
   const increment = () => {
     setCount((c) => c + 1);
   };
+
   const addTodo = useCallback(() => {
     setTodos((t) => [...t, "New Todo"]);
   }, [todos]);

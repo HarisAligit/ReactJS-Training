@@ -7,20 +7,25 @@ import NewTodo from "./Components/Todos/NewTodo";
 import Parent from "./Components/Hooks/ImperativeHandleParent";
 import LoginButton from "./Components/Login/LoginButton";
 import Welcome from "./Components/Shared/test";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     // <div className="App">
     //   <header className="App-header">
     <div>
-      <Welcome />
-      <LoginButton />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="login" element={<LoginButton />} />
+          <Route path="clock" element={<Clock />} />
+          <Route path="tcalc" element={<TempCalculator />} />
+          <Route path="tcalc" element={<Day7 />} />
+          <Route path="color" element={<ColoredBlock />} />
+        </Routes>
+      </BrowserRouter>
       <Parent />
       <NewTodo />
-      <TempCalculator />
-      <Clock />
-      <Day7 />
-      <ColoredBlock />
     </div>
 
     /* <img src={logo} className="App-logo" alt="logo" />

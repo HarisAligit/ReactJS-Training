@@ -17,3 +17,7 @@ code {
   width: 150px;
   height: 60px;
 }
+
+.list-head{
+  max-width: 800px;
+}
