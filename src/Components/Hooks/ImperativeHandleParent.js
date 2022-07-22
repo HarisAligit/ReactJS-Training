@@ -7,6 +7,7 @@ const Parent = () => {
   return (
     <div>
       <FancyInput ref={aString} />
+      {aString.current.value}
     </div>
   );
 };

@@ -6,12 +6,14 @@ import Day7 from "./Components/Hooks/day7";
 import NewTodo from "./Components/Todos/NewTodo";
 import Parent from "./Components/Hooks/ImperativeHandleParent";
 import LoginButton from "./Components/Login/LoginButton";
+import Welcome from "./Components/Shared/test";
 
 function App() {
   return (
     // <div className="App">
     //   <header className="App-header">
     <div>
+      <Welcome />
       <LoginButton />
       <Parent />
       <NewTodo />

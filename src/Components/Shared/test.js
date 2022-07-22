@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
-import NumberList from "../Memo/NumberList";
-
-const scaleArr = {
-  c: "Celsius",
-  f: "Fahrenheit",
-};
+import React, { useEffect } from "react";
+import TaskList from "../Memo/MemoParent";
+import ListMapper from "./ListViewer";
 
 const Welcome = (props) => {
   const x = "Hello From";
-  const [login, setLogin] = useState(false);
   const numbers = [1, 2, 3, 4, 6, 7, 8];
 
   useEffect(() => {
@@ -19,12 +13,10 @@ const Welcome = (props) => {
     };
   }, []);
 
-  const PropsTemperature = props.temperature;
-  const scale1 = props.scale;
-
   return (
     <div>
-      <NumberList list={numbers} />
+      <ListMapper title="Numbers" list={numbers} />
+      <TaskList />
       {x}
     </div>
   );
