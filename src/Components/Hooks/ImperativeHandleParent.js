@@ -1,13 +1,17 @@
-import FancyInput from "./ImperativeHandlerChild";
+import Day7 from "./day7";
 import { useRef } from "react";
+import { Button } from "react-bootstrap";
 
 const Parent = () => {
-  const aString = useRef("");
+  const ref = useRef();
 
   return (
     <div>
-      <FancyInput ref={aString} />
-      {aString.current.value}
+      <Day7 ref={ref} />
+      <Button variant="info" onClick={() => ref.current.increment()}>
+        {" "}
+        ImperativeHandleParent Button
+      </Button>
     </div>
   );
 };

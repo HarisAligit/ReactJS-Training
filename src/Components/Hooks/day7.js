@@ -1,20 +1,32 @@
-import { useState, useEffect, useMemo, useReducer, useRef } from "react";
+import {
+  useState,
+  useEffect,
+  useMemo,
+  useReducer,
+  useImperativeHandle,
+  forwardRef,
+  useRef,
+} from "react";
 import { Button } from "react-bootstrap";
 import useFetch from "./Fetch";
 
 const expensivefunc = (a) => {
-  for (let i = 0; i < 299999999; i++) {
+  for (let i = 0; i < 99999999; i++) {
     a += 1;
   }
   return a;
 };
 
-const Day7 = () => {
+const Day7 = forwardRef((props, ref) => {
   const [jsonData] = useFetch("https://jsonplaceholder.typicode.com/todos"); // using Custom Hook with useState
   const [message, SetMessage] = useState("");
   const prevMessage = useRef("");
   const [count, setCount] = useState(0);
   const calculation = useMemo(() => expensivefunc(count), [count]);
+
+  useImperativeHandle(ref, () => ({
+    increment,
+  }));
 
   const reducer = (state, action) => {
     switch (action.type) {
@@ -35,8 +47,8 @@ const Day7 = () => {
 
   const [state, dispatch] = useReducer(reducer, { count: 0 });
 
-  const increment = (incCount) => {
-    setCount(incCount);
+  const increment = () => {
+    setCount(count + 1);
   };
 
   useEffect(() => {
@@ -54,7 +66,7 @@ const Day7 = () => {
       {jsonData && JSON.stringify(jsonData.slice(1, 11))}
       <h2>Current Value: {message}</h2>
       <h2>Previous Value: {prevMessage.current}</h2>
-      <Button variant="danger" onClick={() => increment(count + 1)}>
+      <Button variant="danger" onClick={() => increment()}>
         Add Count!
       </Button>
       Count: {state.count}
@@ -78,6 +90,6 @@ const Day7 = () => {
       Value: {calculation}
     </div>
   );
-};
+});
 
 export default Day7;
