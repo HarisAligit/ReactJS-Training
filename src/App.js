@@ -7,6 +7,8 @@ import NewTodo from "./Components/Todos/NewTodo";
 import Parent from "./Components/Hooks/ImperativeHandleParent";
 import LoginButton from "./Components/Login/LoginButton";
 import Welcome from "./Components/Shared/test";
+import Uncontrol from "./Components/Uncontrolled/uncontrol";
+import Error from "./Components/Error/Error";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route path="tcalc" element={<TempCalculator />} />
           <Route path="tcalc" element={<Day7 />} />
           <Route path="color" element={<ColoredBlock />} />
+          <Route path="uncontrol" element={<Uncontrol />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
       <Parent />

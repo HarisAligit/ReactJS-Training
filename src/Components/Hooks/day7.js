@@ -76,11 +76,17 @@ const Day7 = forwardRef((props, ref) => {
       >
         Reset
       </Button>
-      <Button variant="warning" onClick={() => dispatch({ type: "decrement" })}>
+      <Button
+        variant="outline-secondary"
+        onClick={() => dispatch({ type: "decrement" })}
+      >
         {" "}
         -{" "}
       </Button>
-      <Button variant="warning" onClick={() => dispatch({ type: "increment" })}>
+      <Button
+        variant="outline-secondary"
+        onClick={() => dispatch({ type: "increment" })}
+      >
         {" "}
         +{" "}
       </Button>

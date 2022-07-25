@@ -21,3 +21,8 @@ code {
 .list-head{
   max-width: 800px;
 }
+
+.link_to {
+  text-decoration: none;
+  color: grey;
+}
