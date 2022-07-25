@@ -11,6 +11,7 @@ const NewTodo = () => {
   };
 
   const addTodo = useCallback(() => {
+    console.log("addTodo Rendered!");
     setTodos((t) => [...t, "New Todo"]);
   }, [todos]);
 

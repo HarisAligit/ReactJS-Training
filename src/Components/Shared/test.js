@@ -15,7 +15,7 @@ const Welcome = (props) => {
 
   return (
     <div>
-      <ListMapper title="Numbers" list={numbers} />
+      <ListMapper onClick={() => {}} title="Numbers" list={numbers} />
       <TaskList />
       {x}
     </div>

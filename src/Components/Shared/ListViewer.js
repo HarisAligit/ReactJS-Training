@@ -9,8 +9,12 @@ const ListMapper = (props) => {
           <h2>{props.title}</h2>
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          {props.list.map((element, key) => {
-            return <p key={key}>{element}</p>;
+          {props.list.map((element, index) => {
+            return (
+              <p onClick={props.onClick} key={index}>
+                {element}
+              </p>
+            );
           })}
         </ListGroup.Item>
       </ListGroup>

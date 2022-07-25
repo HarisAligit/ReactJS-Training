@@ -10,6 +10,10 @@ import Welcome from "./Components/Shared/test";
 import Uncontrol from "./Components/Uncontrolled/uncontrol";
 import Error from "./Components/Error/Error";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import LoginData from "./Components/Authentication/LoginData";
+import SignInUser from "./Components/Authentication/SignIn";
+import Protected from "./Components/Authentication/protectedRoute";
+import HOCParent from "./Components/HigherOrder/parent";
 
 function App() {
   return (
@@ -19,7 +23,16 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Welcome />} />
-          <Route path="login" element={<LoginButton />} />
+          <Route
+            path="/user"
+            element={
+              <Protected>
+                <LoginData />
+              </Protected>
+            }
+          />
+          <Route path="signout" element={<LoginButton />} />
+          <Route path="user/signin" element={<SignInUser />} />
           <Route path="clock" element={<Clock />} />
           <Route path="tcalc" element={<TempCalculator />} />
           <Route path="tcalc" element={<Day7 />} />
@@ -28,6 +41,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
+      {/* <HOCParent /> */}
       <Parent />
       <NewTodo />
     </div>
