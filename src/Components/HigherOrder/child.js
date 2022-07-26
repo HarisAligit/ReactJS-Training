@@ -9,4 +9,4 @@ const HOChild = () => {
   );
 };
 
-export default HOChild;
+// export default HOCParent(HOChild);

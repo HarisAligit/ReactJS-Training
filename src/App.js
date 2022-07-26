@@ -14,6 +14,7 @@ import LoginData from "./Components/Authentication/LoginData";
 import SignInUser from "./Components/Authentication/SignIn";
 import Protected from "./Components/Authentication/protectedRoute";
 import HOCParent from "./Components/HigherOrder/parent";
+import FormikForm from "./Components/Forms/Formik";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="tcalc" element={<Day7 />} />
           <Route path="color" element={<ColoredBlock />} />
           <Route path="uncontrol" element={<Uncontrol />} />
+          <Route path="formik" element={<FormikForm />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

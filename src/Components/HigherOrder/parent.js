@@ -1,11 +1,11 @@
-import HOChild from "./child";
+// import HOChild from "./child";
 
-const HOCParent = () => {
-  return (
-    <div>
-      <HOChild />
-    </div>
-  );
-};
+// const HOCParent = () => {
+//   return (
+//     <div>
+//       <HOChild />
+//     </div>
+//   );
+// };
 
-export default HOCParent;
+// export default HOCParent;

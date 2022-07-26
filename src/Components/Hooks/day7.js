@@ -19,7 +19,6 @@ const expensivefunc = (a) => {
 };
 
 const Day7 = forwardRef((props, ref) => {
-  const [jsonData] = useFetch("https://jsonplaceholder.typicode.com/todos"); // using Custom Hook with useState
   const [message, SetMessage] = useState("");
   const prevMessage = useRef("");
   const [count, setCount] = useState(0);
@@ -64,7 +63,6 @@ const Day7 = forwardRef((props, ref) => {
 
   return (
     <div>
-      {jsonData && JSON.stringify(jsonData.slice(1, 11))}
       <h2>Current Value: {message}</h2>
       <h2>Previous Value: {prevMessage.current}</h2>
       <Button variant="danger" onClick={() => increment()}>
